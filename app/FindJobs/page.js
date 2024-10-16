@@ -1,9 +1,13 @@
 'use client'
 import { useEffect } from "react"
 import { useState } from "react"
+import { FaSearch } from "react-icons/fa";
 export default function FindJobs () {
     //hidden search taken from 50 projects 50 days 
-    
+    const [isActive, setIsActive] = useState(false)
+        const handleSearchClick = () => {
+            setIsActive(!isActive)
+        }
     //Expanding cards taken from 50 projects 50 days modified using chatgpt for help
     const [activeIndex, setActiveIndex] = useState(null);
     const jobPostings = [
@@ -97,14 +101,23 @@ export default function FindJobs () {
                 <h1 className="text-4xl ">Job Search</h1>
                 <p className=" text-gray-600">Find Your Dream Job</p>
             </div>
-
-            <div className="text-center mt-3">
-                <form>
-                    <input className="mr-3 w-56" type="text" placeholder="Job Title, Location, or Company"/>
-                    <button className=" hover:bg-gray-200 border-solid border-black border-2 rounded w-fit p-1 active:scale-90" type="submit">Search</button>
-                </form>
+            <div className="flex justify-center mt-3">
+                <div className={`relative h-12 ${isActive ? 'w-52' : 'w-12'} transition-all duration-300`}>
+                    <input
+                        type="text"
+                        className={`bg-white h-12 w-${isActive ? 'full' : '12'} px-4 py-2 text-lg transition-all duration-300 focus:outline-none`}
+                        placeholder="Search..."
+                    />
+                    <button
+                        className="absolute top-0 left-0 w-12 h-12 bg-white text-2xl flex items-center justify-center cursor-pointer focus:outline-none transition-transform duration-300"
+                        onClick={handleSearchClick}
+                        type="submit"
+                        style={{ transform: isActive ? 'translateX(196px)' : 'translateX(0)' }}
+                    >
+                        <FaSearch/>
+                    </button>
+                </div>
             </div>
-
             <div className="w-11/12 mx-auto mt-10 space-y-4">
                 {jobPostings.map((job, index) => (
                     <div
