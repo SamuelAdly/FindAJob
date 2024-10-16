@@ -101,7 +101,7 @@ export default function FindJobs () {
             <div className="text-center mt-3">
                 <form>
                     <input className="mr-3 w-56" type="text" placeholder="Job Title, Location, or Company"/>
-                    <button className=" hover:bg-gray-200 border-solid border-black border-2 rounded w-fit pl-1 pr-1" type="submit">Search</button>
+                    <button className=" hover:bg-gray-200 border-solid border-black border-2 rounded w-fit p-1" type="submit">Search</button>
                 </form>
             </div>
 
