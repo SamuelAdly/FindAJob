@@ -1,15 +1,22 @@
 'use client'
-import { useEffect } from "react"
 import { useState } from "react"
 import { FaSearch } from "react-icons/fa";
 export default function FindJobs () {
+    //search bar term so whatever user enters in the search it gets filtered
+    const [searchTerm, setSearchTerm] = useState("")
+
     //hidden search taken from 50 projects 50 days 
+    //isactive is used to determine whether to expand or collapse the search bar
     const [isActive, setIsActive] = useState(false)
+    //this function toggles the search bar width
         const handleSearchClick = () => {
             setIsActive(!isActive)
         }
+
     //Expanding cards taken from 50 projects 50 days modified using chatgpt for help
+    //activeindex stores the index of the currently expanded job posting. If active it will show the details and expand
     const [activeIndex, setActiveIndex] = useState(null);
+    //list of job posting objects that show title, company, location, salary, and description. Based on type the content gets displayed differently
     const jobPostings = [
         {
             title: 'Entry-Level Teacher',
@@ -89,11 +96,15 @@ export default function FindJobs () {
                 ]}
             ],
         },
-    ]
+    ] //handles the expansion of the cards. If its not already clicked it expands if it is already expanded then it collapses
     const handleClick = (index) => {
         setActiveIndex(activeIndex === index ? null : index);
-    }
-
+    } //filters the job postings based on the searchterm entered by the user
+    const filteredJobs = jobPostings.filter(job =>
+        job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        job.company.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        job.location.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
     return (
         <main className="w-full">
@@ -105,21 +116,23 @@ export default function FindJobs () {
                 <div className={`relative h-12 ${isActive ? 'w-52' : 'w-12'} transition-all duration-300`}>
                     <input
                         type="text"
-                        className={`bg-white h-12 w-${isActive ? 'full' : '12'} px-4 py-2 text-lg transition-all duration-300 focus:outline-none`}
+                        className={`bg-white border-2 border-black h-12 w-${isActive ? 'full' : '12'} px-2 py-2 text-lg transition-all duration-300 focus:outline-none`}
                         placeholder="Search..."
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
                     />
                     <button
                         className="absolute top-0 left-0 w-12 h-12 bg-white text-2xl flex items-center justify-center cursor-pointer focus:outline-none transition-transform duration-300"
                         onClick={handleSearchClick}
                         type="submit"
-                        style={{ transform: isActive ? 'translateX(196px)' : 'translateX(0)' }}
+                        style={{ transform: isActive ? 'translateX(210px)' : 'translateX(0)' }}
                     >
                         <FaSearch/>
                     </button>
                 </div>
             </div>
             <div className="w-11/12 mx-auto mt-10 space-y-4">
-                {jobPostings.map((job, index) => (
+                {filteredJobs.length > 0 ? (filteredJobs.map((job, index) => (
                     <div
                         key={index}
                         className="bg-gray-100 rounded-lg text-black cursor-pointer m-2 p-6 relative transition-all duration-500 ease-in-out border border-gray-300"
@@ -151,7 +164,10 @@ export default function FindJobs () {
                             </div>
                         )}
                     </div>
-                ))}
+                ))
+            ) : (
+                <p className="text-center text-gray-600 my-2 font-extrabold">No Jobs Found</p> //no search results found? Display no jobs found
+            )}
             </div>
         </main>
     )

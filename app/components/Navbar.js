@@ -35,7 +35,7 @@ export default function Navbar () {
                         <span className=" hidden sm:inline">Upload Resume</span>
                     </a>
                     
-                    <a href="/Post Jobs" className="hover:text-gray-700 p-1 rounded-md text-sm font-medium flex items-center space-x-1">
+                    <a href="/PostJobs" className="hover:text-gray-700 p-1 rounded-md text-sm font-medium flex items-center space-x-1">
                         <IoMdAdd className="h-5 w-5"/>
                         <span className=" hidden sm:inline">Post Jobs</span>
                     </a>
