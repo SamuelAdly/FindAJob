@@ -50,7 +50,9 @@ export default function Navbar () {
 
                     <button className="hover:bg-gray-200 border-2 border-black rounded p-1 active:scale-90 flex items-center space-x-1">
                         <BsFillPersonPlusFill className="h-4 w-4"/>
-                        <span className=" hidden sm:inline">Register</span>
+                        <a href="/registration">
+                            <span className=" hidden sm:inline">Register</span>
+                        </a>
                     </button>
                 </div>
             </div>
