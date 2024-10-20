@@ -55,6 +55,9 @@ const registrationForm = () => {
   return (
         <form onSubmit={handleSubmit} className="m-auto flex flex-col mt-10 p-10 w-1/2 border-2 border-gray-100">
             <div className="relative flex justify-between  mb-8 w-full">
+
+                {/* progress bar  50 projects 50 days idea was used and modified to fit project needs*/}
+                
                 <div className="absolute top-1/2 h-1 w-full bg-neutral-400 -z-10" id="grayLine"></div>
                 <div className={`absolute top-1/2 h-1 w-${progress} bg-sky-600 transition ease-in-out -z-10`} id="progress"></div>
                 
@@ -73,7 +76,7 @@ const registrationForm = () => {
                 {step === 3 && <button type="submit" className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition duration-200">Submit</button>}
             </div>     
             
-            {/* progress bar  50 projects 50 days idea was used and modified to fit project needs*/}
+            
         </form>
 
   )
