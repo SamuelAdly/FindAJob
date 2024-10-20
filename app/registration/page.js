@@ -1,105 +1,80 @@
 'use client'
 import {useState} from "react";
+import Step1 from "../components/steps/Step1";
+import Step2 from "../components/steps/Step2";
+import Step3 from "../components/steps/Step3";
 
 const registrationForm = () => {
-    const labelStyle = "w-full text-lg font-medium mb-1";
-    const inputStyle = "w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-400 transition duration-200";
-    const submitStyle = "w-full bg-blue-500 text-white font-semibold py-2 rounded-md transition duration-300 ease-in-out hover:bg-blue-600";
-    const buttonStyle = "bg-gray-800 border-2 border-black text-white rounded p-1 hover:bg-gray-900";
-    const [formData, setFormData] = useState({firstName: "", lastName: "", email:"", role: ""});
-    const [currentStep, setCurrentStep] = useState(0);
-    const handleChange = (event) => {
-        const {name, value} = event.target;
-        setFormData((prevFormData) => ({...prevFormData, [name]: value}));
+
+    const [step, setStep] = useState(1);
+    const [formData, setFormData] = useState({
+        firstName: '',
+        lastName: '',
+        email: '',
+        phone: '',
+        location: '',
+        role: '',
+        industry: '',
+        education: '',
+        locationType: '',
+    });
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log('Form submitted:', formData);
+        // Submit form data to a server here if needed
     };
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        //alert(`Name: ${formData.name}, Email: ${formData.email}, Message: ${formData.message}`
-    }
-
-    const handleClick = (event) => {
-        if(event.target.id === "previousBtn"){
-            if (currentStep > 0){
-                setCurrentStep((prev) => prev - 1)
-            }    
-        } else if (event.target.id === "nextBtn"){
-            // we have to set a max based on the last card component
-            setCurrentStep((next) => next + 1)
-        } else{
-            console.log(event.target);
+    
+    // render correct step component based on how far completion has gone
+    const renderStep = () => {
+        switch (step) {
+            case 1:
+                return <Step1 formData={formData} setFormData={setFormData} />;
+            case 2:
+                return <Step2 formData={formData} setFormData={setFormData} />;
+            case 3:
+                return <Step3 formData={formData} setFormData={setFormData} />;
+            default:
+                return <Step1 formData={formData} setFormData={setFormData} />;
         }
-        
-    }
+    };
+    
+    // function is called on state change to keep track of progress dynamically and change css accordingly for #progress
 
+    const progress = (() => {
+        switch (step){
+            case 1:
+                return '0';
+            case 2:
+                return '1/2';
+            case 3:
+                return 'full'
+        }
+    })();
 
   return (
-    <div className="w-1/2 mx-auto mt-10">
-        <form className="space-y-4 bg-white rounded-lg shadow-lg p-12 border border-gray-200" onSubmit = {handleSubmit}>
-
-            {currentStep === 0 && (
-                <div>
-                        <label className={labelStyle} htmlFor="firstName">First Name: </label>
-                        <input className={inputStyle} type="text" id="firstName" name="firstName" value={formData.name} onChange={handleChange} />
-
-
-                        <label className={labelStyle} htmlFor="lastName">Last Name: </label>
-                        <input className={inputStyle} type="text" id="lastName" name="lastName" value={formData.name} onChange={handleChange} />
-
-                </div>
-            )}
-
-            {
-                currentStep === 1 && (
-                    <div>
-                            <label className={labelStyle} htmlFor="email">Email:</label>
-                            <input className={inputStyle} type="email" id="email" name="email" value={formData.email} onChange={handleChange} />
-                        
-                            <p className={labelStyle}>What what are you looking for? </p>
-                            <div>
-                                <label className={`text-lg font-medium mb-1`}>
-                                    <input className={``} type="radio" name="role" value="employer" />
-                                    Find a Job
-                                </label>
-
-                            </div>
-                            <div>
-                                <label className={`text-lg font-medium mb-1`}>
-                                    <input className={``} type="radio" name="role" value="employee" />
-                                    Hire Employees
-                                </label>     
-                            </div>
-                        
-
-
-                    </div>
-                
-            )}
-
-            <div className="flex justify-between">
-                
-                <button id="previousBtn" className={buttonStyle} onClick={handleClick}>Prev</button>
-                {
-                    // 1 is temporary, planning on making this dynamic and actually represent the last page
-                    
-                    currentStep < 1 ? <button id="nextBtn" className={buttonStyle} onClick={handleClick}>Next</button> : <button className={submitStyle} type="submit">Submit</button> 
-                }
-            </div>
-
-            <div className=" border-2 relative flex justify-between  mb-8 w-full w-32 ">
+        <form onSubmit={handleSubmit} className="m-auto flex flex-col mt-10 p-10 w-1/2 border-2 border-gray-100">
+            <div className="relative flex justify-between  mb-8 w-full">
                 <div className="absolute top-1/2 h-1 w-full bg-neutral-400 -z-10" id="grayLine"></div>
-                <div className="absolute top-1/2 h-1 w-0 bg-sky-600 transition ease" id="progress"></div>
-                <div className="flex items-center justify-center w-4 h-4 bg-gray-200  rounded-full">1</div>
-                <div className="flex items-center justify-center w-4 h-4 bg-gray-200  rounded-full">2</div>
-                <div className="flex items-center justify-center w-4 h-4 bg-gray-200  rounded-full">3</div>
-                <div className="flex items-center justify-center w-4 h-4 bg-gray-200  rounded-full">4</div>
-            </div>
+                <div className={`absolute top-1/2 h-1 w-${progress} bg-sky-600 transition ease-in-out -z-10`} id="progress"></div>
+                
+                {/* Go through each element in the array, calling a function that renders each progress step and chooses whether to change background color based on what step its on to help give more visual feedback*/}
+                {[1, 2, 3].map((progressStep) => (
+                    <div key={progressStep} className={`flex items-center justify-center w-8 h-8 rounded-full border-2 transition-colors duration-300 ease-in-out ${progressStep <= step ? 'bg-sky-600 border-sky-600 text-white' : 'bg-gray-200 border-gray-300 text-gray-500'}`}>
+                        {progressStep}
+                    </div>
+                ))}  
+            </div>    
+                           
+            {renderStep()}
+            <div className="flex justify-between mt-4">
+                {step > 1 && <button type="button" className="px-4 py-2 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400 transition duration-200" onClick={()=> setStep((prev)=>prev-1)}>Back</button>}
+                {step < 3 && <button type="button" className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-200" onClick={()=> setStep((prev)=>prev+1)}>Next</button>}
+                {step === 3 && <button type="submit" className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition duration-200">Submit</button>}
+            </div>     
             
+            {/* progress bar  50 projects 50 days idea was used and modified to fit project needs*/}
         </form>
-
-
-        
-    </div>
 
   )
 }
