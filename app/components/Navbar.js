@@ -1,10 +1,7 @@
-import { TiHome } from "react-icons/ti";
-import { FaSearch } from "react-icons/fa";
-import { IoMdHelp } from "react-icons/io";
-import { FaFileUpload } from "react-icons/fa";
-import { IoMdAdd } from "react-icons/io";
-import { FaSignInAlt } from "react-icons/fa";
 import { BsFillPersonPlusFill } from "react-icons/bs";
+import { FaFileUpload, FaSearch, FaSignInAlt } from "react-icons/fa";
+import { IoMdAdd, IoMdHelp } from "react-icons/io";
+import { TiHome } from "react-icons/ti";
 
 export default function Navbar () {
     return (
@@ -20,22 +17,22 @@ export default function Navbar () {
                 </div>
 
                 <div className="flex items-center space-x-4">
-                    <a href="/FindJobs" className="hover:text-gray-700 p-1 rounded-md text-sm font-medium flex items-center space-x-1">
+                    <a href="/find-jobs" className="hover:text-gray-700 p-1 rounded-md text-sm font-medium flex items-center space-x-1">
                         <FaSearch className="h-4 w-4"/>
                         <span className=" hidden sm:inline">Find Jobs</span>
                     </a>
                     
-                    <a href="/CareerHelp" className="hover:text-gray-700 p-1 rounded-md text-sm font-medium flex items-center space-x-1">
+                    <a href="/career-help" className="hover:text-gray-700 p-1 rounded-md text-sm font-medium flex items-center space-x-1">
                         <IoMdHelp className="h-5 w-5"/>
                         <span className=" hidden sm:inline">Career Help</span>
                     </a>
                     
-                    <a href="/UploadResume" className="hover:text-gray-700 p-1 rounded-md text-sm font-medium flex items-center space-x-1">
+                    <a href="/upload-resume" className="hover:text-gray-700 p-1 rounded-md text-sm font-medium flex items-center space-x-1">
                         <FaFileUpload className="h-4 w-4"/>
                         <span className=" hidden sm:inline">Upload Resume</span>
                     </a>
                     
-                    <a href="/PostJobs" className="hover:text-gray-700 p-1 rounded-md text-sm font-medium flex items-center space-x-1">
+                    <a href="/post-jobs" className="hover:text-gray-700 p-1 rounded-md text-sm font-medium flex items-center space-x-1">
                         <IoMdAdd className="h-5 w-5"/>
                         <span className=" hidden sm:inline">Post Jobs</span>
                     </a>
