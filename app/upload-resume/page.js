@@ -30,6 +30,7 @@ const registrationForm = () => {
 
     return (
         <div className="m-auto flex flex-col mt-10 p-10 w-2/3 border-2 border-gray-100">
+            <h2 className="text-xl font-bold text-center">Upload Resume</h2>
             <form
                 onSubmit={handleSubmit}
                 className="flex flex-col justify-evenly items-center w-full min-h-40"
@@ -66,7 +67,7 @@ const registrationForm = () => {
                 </div>
                 <button
                     type="submit"
-                    className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition duration-200 cursor-pointer disabled:cursor-not-allowed"
+                    className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition duration-200 cursor-pointer disabled:cursor-not-allowed disabled:bg-gray-300"
                     disabled={!formData.file}
                 >
                     Upload
