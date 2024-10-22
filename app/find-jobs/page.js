@@ -109,7 +109,7 @@ export default function FindJobs () {
     return (
         <main className="w-full">
             <div className="text-center">
-                <h1 className="text-4xl ">Job Search</h1>
+                <h1 className="text-4xl font-bold">Job Search</h1>
                 <p className=" text-gray-600">Find Your Dream Job</p>
             </div>
             <div className="flex justify-center mt-3">

@@ -21,7 +21,7 @@ const SplitLandingPage = () => {
                 <div className="text-center text-white z-10">
                     <h1 className="text-3xl font-bold">Employers</h1>
                     <p className="mt-4">Post a job and find the perfect candidate for your company</p>
-                    <Link href="./find-jobs">
+                    <Link href="./post-jobs">
                         <button className="mt-6 inline-block bg-black bg-opacity-50 px-4 py-2 rounded text-white">Employers</button>
                     </Link>
                 </div>
