@@ -102,6 +102,7 @@ export default function CareerHelp () {
             ]
             },
     ]
+
     const resources = [
         {
             title: 'Resume and Cover Letter Help',
@@ -204,29 +205,29 @@ export default function CareerHelp () {
                 ]}
             ]
         }
-    ];
+    ]
 
     const [activeFaqIndex, setActiveFaqIndex] = useState(null);
-    const [activeResourceIndex, setActiveResourceIndex] = useState(null);
+    const [activeResourceIndex, setActiveResourceIndex] = useState(null)
 
     const handleFaqClick = (index) => {
-        setActiveFaqIndex(activeFaqIndex === index ? null : index);
-    };
+        setActiveFaqIndex(activeFaqIndex === index ? null : index)
+    }
 
     const handleResourceClick = (index) => {
-        setActiveResourceIndex(activeResourceIndex === index ? null : index);
-    };
+        setActiveResourceIndex(activeResourceIndex === index ? null : index)
+    }
 
     return (
-        <main className="w-full">
-            <div className="text-center mt-2">
+        <main className="w-full min-h-screen">
+            <div className="text-center mt-3">
                 <h1 className="text-4xl font-bold">Career Help</h1>
-                <p className="text-gray-600">Get advice and resources to boost your career</p>
+                <p className="text-gray-600 italic">Get Advice and Resources to Boost Your Career</p>
             </div>
     
             {/* FAQs Section */}
             <div className="w-11/12 mx-auto mt-10 space-y-4">
-                <h2 className="text-3xl font-bold">FAQ</h2>
+                <h2 className="text-3xl font-bold border-b-4 border-gray-800 rounded-b-lg shadow-lg ">FAQ</h2>
                 {faqs.map((faq, index) => (
                     <div
                         key={index}
@@ -256,7 +257,7 @@ export default function CareerHelp () {
             
             {/* Resources Section */}
             <div className="w-11/12 mx-auto mt-10 space-y-4">
-                <h2 className="text-3xl font-bold">Resources</h2>
+                <h2 className="text-3xl font-bold border-b-4 border-gray-800 rounded-b-lg shadow-lg">Resources</h2>
                 {resources.map((resource, index) => (
                     <div 
                         key={index} 

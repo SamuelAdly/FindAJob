@@ -110,7 +110,7 @@ export default function FindJobs () {
         <main className="w-full">
             <div className="text-center">
                 <h1 className="text-4xl font-bold">Job Search</h1>
-                <p className=" text-gray-600">Find Your Dream Job</p>
+                <p className=" text-gray-600 italic">Find Your Dream Job</p>
             </div>
             <div className="flex justify-center mt-3">
                 <div className={`relative h-12 ${isActive ? 'w-52' : 'w-12'} transition-all duration-300`}>
