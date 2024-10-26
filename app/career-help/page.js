@@ -220,18 +220,18 @@ export default function CareerHelp () {
 
     return (
         <main className="w-full min-h-screen">
-            <div className="text-center mt-3">
-                <h1 className="text-4xl font-bold">Career Help</h1>
-                <p className="text-gray-600 italic">Get Advice and Resources to Boost Your Career</p>
+            <div className="text-center mt-5 mb-10">
+                <h1 className="text-5xl font-bold text-gray-800">Career Help</h1>
+                <p className="text-gray-600 italic text-lg mt-2">Get Advice and Resources to Boost Your Career</p>
             </div>
     
             {/* FAQs Section */}
             <div className="w-11/12 mx-auto mt-10 space-y-4">
-                <h2 className="text-3xl font-bold border-b-4 border-gray-800 rounded-b-lg shadow-lg ">FAQ</h2>
+                <h2 style={{ fontFamily: "sans-serif" }} className="text-6xl font-extrabold text-gray-800">FAQS</h2>
                 {faqs.map((faq, index) => (
                     <div
                         key={index}
-                        className="bg-gray-100 rounded-lg text-black cursor-pointer m-2 p-6 relative transition-all duration-500 ease-in-out border border-gray-300"
+                        className="bg-gray-100 shadow-md rounded-lg text-black cursor-pointer m-2 p-6 relative hover:scale-105 hover:bg-gray-200 transition transform border border-gray-300"
                         onClick={() => handleFaqClick(index)}
                     >
                         <h3 className="text-2xl font-bold mb-2">{faq.title}</h3>
@@ -257,11 +257,11 @@ export default function CareerHelp () {
             
             {/* Resources Section */}
             <div className="w-11/12 mx-auto mt-10 space-y-4">
-                <h2 className="text-3xl font-bold border-b-4 border-gray-800 rounded-b-lg shadow-lg">Resources</h2>
+                <h2 style={{ fontFamily: "sans-serif" }} className="text-6xl font-extrabold text-gray-800">Resources</h2>
                 {resources.map((resource, index) => (
                     <div 
                         key={index} 
-                        className="bg-gray-100 rounded-lg text-black cursor-pointer m-2 p-6 relative transition-all duration-500 ease-in-out border border-gray-300"
+                        className="bg-gray-100 shadow-md rounded-lg text-black cursor-pointer m-2 p-6 relative hover:scale-105 hover:bg-gray-200 transition transform border border-gray-300"
                         onClick={() => handleResourceClick(index)}
                     >
                         <h3 className="text-2xl font-bold mb-2">{resource.title}</h3>
@@ -278,7 +278,7 @@ export default function CareerHelp () {
                                                         <li key={itemIdx}>
                                                             <a 
                                                                 href={item.url} 
-                                                                className="text-blue-500"
+                                                                className="text-blue-500 underline hover:text-blue-700"
                                                                 target="_blank" 
                                                                 rel="noopener noreferrer"
                                                             >

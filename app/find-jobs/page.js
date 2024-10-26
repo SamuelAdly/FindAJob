@@ -108,9 +108,9 @@ export default function FindJobs () {
 
     return (
         <main className="w-full">
-            <div className="text-center">
-                <h1 className="text-4xl font-bold">Job Search</h1>
-                <p className=" text-gray-600 italic">Find Your Dream Job</p>
+            <div className="text-center mt-5 mb-10">
+                <h1 className="text-5xl font-bold text-gray-800">Job Search</h1>
+                <p className=" text-gray-600 italic text-lg mt-2">Find Your Dream Job</p>
             </div>
             <div className="flex justify-center mt-3">
                 <div className={`relative h-12 ${isActive ? 'w-52' : 'w-12'} transition-all duration-300`}>
@@ -135,7 +135,7 @@ export default function FindJobs () {
                 {filteredJobs.length > 0 ? (filteredJobs.map((job, index) => (
                     <div
                         key={index}
-                        className="bg-gray-100 rounded-lg text-black cursor-pointer m-2 p-6 relative transition-all duration-500 ease-in-out border border-gray-300"
+                        className="bg-gray-100 shadow-md rounded-lg text-black cursor-pointer m-2 p-6 relative hover:scale-105 hover:bg-gray-200 transition transform border border-gray-300"
                         onClick={() => handleClick(index)}
                     >
                         <h3 className="text-2xl font-bold mb-2">{job.title}</h3>

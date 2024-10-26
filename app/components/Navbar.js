@@ -41,13 +41,15 @@ export default function Navbar () {
                 <div className="flex items-center space-x-2">
 
                     <button className="bg-gray-800 border-2 border-black text-white rounded p-1 hover:bg-gray-700 active:scale-90 flex items-center space-x-1">
-                        <FaSignInAlt className="h-4 w-4"/>
-                        <span className=" hidden sm:inline">Sign In</span>
+                        <a className="flex items-center space-x-1" href="sign-in">
+                            <FaSignInAlt className="h-4 w-4"/>
+                            <span className=" hidden sm:inline">Sign In</span>
+                        </a>
                     </button>
 
                     <button className="hover:bg-gray-200 border-2 border-black rounded p-1 active:scale-90 flex items-center space-x-1">
-                        <BsFillPersonPlusFill className="h-4 w-4"/>
-                        <a href="/registration">
+                        <a className="flex items-center space-x-1" href="/registration">
+                            <BsFillPersonPlusFill className="h-4 w-4"/>
                             <span className=" hidden sm:inline">Register</span>
                         </a>
                     </button>
