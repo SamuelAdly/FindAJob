@@ -10,9 +10,10 @@ const postJobs = ()=>{
         location: '',
         salary: '',
         description: [
-            // this should be able to change in size
+            // 
             {type: 'heading', content: 'Job Responsibilites'},
-            {type: 'list', content: ['']}
+            {type: 'list', content: ['']},
+            {type: 'paragraph', content: '' },
         ]
     });
 
@@ -27,14 +28,13 @@ const postJobs = ()=>{
         });
     };
 
-    const handleDescriptionChange = (index, value) => {
-        // Each job has a description which is an array of objects
+    const handleDescriptionChange = (e) => {
         const newDescription = [...formData.description];
-        newDescription[index].content = value;
+        newDescription[2].content = e.target.value;
         setFormData({
             ...formData,
-            description: newDescription,
-        })
+            newDescription,
+        });
     };
 
 
@@ -83,7 +83,7 @@ const postJobs = ()=>{
             
             <InputField
                 label="Company"
-                name="jobTitle"
+                name="company"
                 value={formData.company}
                 onChange={handleChange}
                 placeholder="Company"
@@ -91,7 +91,7 @@ const postJobs = ()=>{
 
             <InputField
                 label="Location"
-                name="jobTitle"
+                name="location"
                 value={formData.location}
                 onChange={handleChange}
                 placeholder="Brooklyn, NY 12111"
@@ -99,7 +99,7 @@ const postJobs = ()=>{
 
             <InputField
                 label="Salary"
-                name="jobTitle"
+                name="salary"
                 value={formData.salary}
                 onChange={handleChange}
                 placeholder="Entry-Level Teacher"
@@ -107,9 +107,9 @@ const postJobs = ()=>{
 
             <InputField
                 label="Description"
-                name="jobTitle"
-                value={formData.jobTitle}
-                onChange={handleChange}
+                name="description"
+                value={formData.description[2].content}
+                onChange={handleDescriptionChange}
                 placeholder="Entry-Level Teacher"
             />
 
@@ -135,11 +135,7 @@ const postJobs = ()=>{
                     <IoAddCircleSharp size={40} onClick={addListItem}/>
                 </div>
                 <button type="submit" className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition duration-200">Submit</button>    
-            </div>
-            
-
-
-            
+            </div>    
 
 
         </form>
