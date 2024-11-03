@@ -132,7 +132,7 @@ const postJobs = ()=>{
 
             <div className="flex flex-col">
                 <div className="flex mb-4 justify-center items-center h-full">
-                    <IoAddCircleSharp size={40} onClick={addListItem}/>
+                    <IoAddCircleSharp size={40} onClick={addListItem} className="cursor-pointer" />
                 </div>
                 <button type="submit" className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition duration-200">Submit</button>    
             </div>    
