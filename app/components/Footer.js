@@ -1,12 +1,16 @@
+import { FaInstagram } from "react-icons/fa";
+import { FaSquareXTwitter } from "react-icons/fa6";
+import { FaLinkedin } from "react-icons/fa";
+
 
 export default function Footer () {
-const headings = ["Logo", "Job Seekers", "Employers", "Resources"];
+const headings = ["Contact", "Job Seekers", "Employers", "Resources"];
 
 const rows = [
     ["Socials", "Browse Jobs", "Products", "About Us"],
-    ["", "Salary Tools", "Solutions", "Work for Us"],
-    ["", "Career Advice", "Pricing", "Terms of Use"],
-    ["", "Company Profile", "Resources", "Privacy Center"]
+    ["Armand Soto", "Salary Tools", "Solutions", "Work for Us"],
+    ["Samuel Adly", "Career Advice", "Pricing", "Terms of Use"],
+    ["Aiden Schulman", "Company Profile", "Resources", "Privacy Center"]
 
 ];
 
@@ -25,7 +29,15 @@ return (
                 <tr key={rowIndex}>
                     {row.map((cell, cellIndex)=>(
                         <td key={cellIndex} className="text-center">
-                            {cell}
+                            {rowIndex === 0 && cellIndex === 0 ? (
+                                <div className="flex items-center justify-center space-x-3">
+                                    <FaInstagram />
+                                    <FaSquareXTwitter />
+                                    <FaLinkedin />
+                                </div>
+                            ): (
+                                cell
+                            )}
                         </td>
                     ))}
                 </tr>
