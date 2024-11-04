@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { MdInsertDriveFile, MdOutlineFileUpload } from "react-icons/md";
 
-const registrationForm = () => {
+const RegistrationForm = () => {
     const [formData, setFormData] = useState({
         file: null,
         fileName: "No selected file",
@@ -77,4 +77,4 @@ const registrationForm = () => {
     );
 };
 
-export default registrationForm;
+export default RegistrationForm;

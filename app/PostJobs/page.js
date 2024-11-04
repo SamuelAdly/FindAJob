@@ -3,7 +3,7 @@ import {useState} from "react";
 import InputField from "../components/InputField";
 import { IoAddCircleSharp } from "react-icons/io5";
 
-const postJobs = ()=>{
+const PostJobs = ()=>{
     const [formData, setFormData] = useState({
         jobTitle: '',
         company: '',
@@ -11,7 +11,7 @@ const postJobs = ()=>{
         salary: '',
         description: [
             // 
-            {type: 'heading', content: 'Job Responsibilites'},
+            {type: 'heading', content: 'Job Responsibilities'},
             {type: 'list', content: ['']},
             {type: 'paragraph', content: '' },
         ]
@@ -143,4 +143,4 @@ const postJobs = ()=>{
 
 }
 
-export default postJobs
+export default PostJobs

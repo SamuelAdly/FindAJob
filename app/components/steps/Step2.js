@@ -46,8 +46,8 @@ const Step2 = ({ formData, setFormData }) => {
                 <option value="">Select your education level...</option>
                 <option value="high-school">High School</option>
                 <option value="associate-degree">Associate Degree</option>
-                <option value="bachelor-degree">Bachelor's Degree</option>
-                <option value="master-degree">Master's Degree</option>
+                <option value="bachelor-degree">Bachelor`s Degree</option>
+                <option value="master-degree">Master`s Degree</option>
                 <option value="doctorate">Doctorate</option>
                 <option value="other">Other</option>
             </select>

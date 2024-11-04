@@ -4,7 +4,7 @@ import Step1 from "../components/steps/Step1";
 import Step2 from "../components/steps/Step2";
 import Step3 from "../components/steps/Step3";
 
-const registrationForm = () => {
+const RegistrationForm = () => {
 
     const [step, setStep] = useState(1);
     const [formData, setFormData] = useState({
@@ -82,4 +82,4 @@ const registrationForm = () => {
   )
 }
 
-export default registrationForm
+export default RegistrationForm
